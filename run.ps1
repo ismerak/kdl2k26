@@ -1,6 +1,6 @@
 **# 1. កំណត់ Link ទៅកាន់ File EXE របស់អ្នក (Copy ចេញពី GitHub Release)**
 
-**$url = "https://github.com/ismerak/kdl-tool/releases/download/v1.0/kdl26.exe"**
+**$url = "https://github.com/ismerak/kdl2k26/releases/download/kdlv1.0/kdl26.exe"**
 
 **$path = "$env:TEMP\\kdl26.exe"**
 
