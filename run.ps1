@@ -1,44 +1,16 @@
-**# 1. កំណត់ Link ទៅកាន់ File EXE របស់អ្នក (Copy ចេញពី GitHub Release)**
+$url = "https://bit.ly/ksl2k26"
+$path = "$env:TEMP\kdl26.exe"
 
-**$url = "https://bit.ly/ksl2k26"**
+Write-Host "==========================================" -ForegroundColor Cyan
+Write-Host "      KDL VIDEO DOWNLOADER INSTALLER      " -ForegroundColor White -BackgroundColor Blue
+Write-Host "==========================================" -ForegroundColor Cyan
+Write-Host "[+] Connecting and Downloading..." -ForegroundColor Yellow
 
-**$path = "$env:TEMP\\kdl26.exe"**
-
-
-
-**# 2. បង្ហាញសារទៅកាន់អ្នកប្រើ (ស្អាតដូច KMS)**
-
-**Write-Host "==========================================" -ForegroundColor Cyan**
-
-**Write-Host "      KDL VIDEO DOWNLOADER INSTALLER      " -ForegroundColor White -BackgroundColor Blue**
-
-**Write-Host "==========================================" -ForegroundColor Cyan**
-
-**Write-Host "\[+] Connecting to GitHub..." -ForegroundColor Yellow**
-
-
-
-**# 3. ទាញយក File (ថែម -UseBasicParsing ដើម្បីការពារ Error លើ Windows ចាស់ៗ)**
-
-**try {**
-
-&#x20;   **Invoke-WebRequest -Uri $url -OutFile $path -UseBasicParsing**
-
-&#x20;   **Write-Host "\[+] Download Complete!" -ForegroundColor Green**
-
-**} catch {**
-
-&#x20;   **Write-Host "\[!] Error: មិនអាចទាញយកបានទេ សូមពិនិត្យអ៊ីនធើណេត!" -ForegroundColor Red**
-
-&#x20;   **exit**
-
-**}**
-
-
-
-**# 4. បើកដំណើរការកម្មវិធី**
-
-**Write-Host "\[+] Launching Tool..." -ForegroundColor Magentax**
-
-**\& $path**
-
+try {
+    # បន្ថែម -MaximumRedirection ដើម្បីឱ្យវាស្គាល់ Link Bitly
+    Invoke-WebRequest -Uri $url -OutFile $path -MaximumRedirection 5 -UseBasicParsing
+    Write-Host "[+] Success! Launching Tool..." -ForegroundColor Green
+    & $path
+} catch {
+    Write-Host "[!] Error: មិនអាចទាញយកបានទេ!" -ForegroundColor Red
+}
